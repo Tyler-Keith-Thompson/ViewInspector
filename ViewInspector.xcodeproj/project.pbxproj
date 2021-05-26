@@ -42,6 +42,8 @@
 		79069A6B238E8490000F6B58 /* OptionalContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79069A6A238E8490000F6B58 /* OptionalContent.swift */; };
 		CA924CDC265DE87000976FEB /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA924CDB265DE87000976FEB /* MapTests.swift */; };
 		CA924CDF265DE9A000976FEB /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA924CDD265DE97800976FEB /* Map.swift */; };
+		CA924CE1265EA27800976FEB /* MapAnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA924CE0265EA27800976FEB /* MapAnnotationTests.swift */; };
+		CA924CE4265EA3A500976FEB /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA924CE2265EA39200976FEB /* MapAnnotation.swift */; };
 		CDA8444D262B6A7100C56C98 /* HitTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA8443D262B68E100C56C98 /* HitTestingTests.swift */; };
 		CDA84452262B6A7A00C56C98 /* GestureActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA84443262B693C00C56C98 /* GestureActionTests.swift */; };
 		CDA8445F262B6ABB00C56C98 /* GestureModifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA84433262B688F00C56C98 /* GestureModifierTests.swift */; };
@@ -281,6 +283,8 @@
 		79069A6A238E8490000F6B58 /* OptionalContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalContent.swift; sourceTree = "<group>"; };
 		CA924CDB265DE87000976FEB /* MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 		CA924CDD265DE97800976FEB /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		CA924CE0265EA27800976FEB /* MapAnnotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationTests.swift; sourceTree = "<group>"; };
+		CA924CE2265EA39200976FEB /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		CDA84433262B688F00C56C98 /* GestureModifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureModifierTests.swift; sourceTree = "<group>"; };
 		CDA8443D262B68E100C56C98 /* HitTestingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTestingTests.swift; sourceTree = "<group>"; };
 		CDA84443262B693C00C56C98 /* GestureActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureActionTests.swift; sourceTree = "<group>"; };
@@ -651,6 +655,7 @@
 				F60EEBC92382EED0007DB53A /* VStack.swift */,
 				F60EEBC12382EED0007DB53A /* ZStack.swift */,
 				CA924CDD265DE97800976FEB /* Map.swift */,
+				CA924CE2265EA39200976FEB /* MapAnnotation.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -756,6 +761,7 @@
 				F60EEBF02382F004007DB53A /* VStackTests.swift */,
 				F60EEBE72382F004007DB53A /* ZStackTests.swift */,
 				CA924CDB265DE87000976FEB /* MapTests.swift */,
+				CA924CE0265EA27800976FEB /* MapAnnotationTests.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -1044,6 +1050,7 @@
 				F6D933C72385FC0100358E0E /* Stepper.swift in Sources */,
 				F6D933A32385DBFD00358E0E /* TabView.swift in Sources */,
 				F6D933A72385E9E000358E0E /* EquatableView.swift in Sources */,
+				CA924CE4265EA3A500976FEB /* MapAnnotation.swift in Sources */,
 				F68108A623A5835E00B32145 /* EventsModifiers.swift in Sources */,
 				F6D933AF2385EBD900358E0E /* HSplitView.swift in Sources */,
 				F60EEBD52382EED0007DB53A /* AnyView.swift in Sources */,
@@ -1184,6 +1191,7 @@
 				F6A35A4A25B35F710068B8B2 /* LazyGroupTests.swift in Sources */,
 				F60EEBFC2382F004007DB53A /* HStackTests.swift in Sources */,
 				CDA84452262B6A7A00C56C98 /* GestureActionTests.swift in Sources */,
+				CA924CE1265EA27800976FEB /* MapAnnotationTests.swift in Sources */,
 				F6C15A6B254B669F000240F1 /* MenuTests.swift in Sources */,
 				F64057F1238DBB120029D9BA /* EmptyViewTests.swift in Sources */,
 				CDA844C8262B7F3100C56C98 /* TapGestureTests.swift in Sources */,

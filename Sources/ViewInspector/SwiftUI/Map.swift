@@ -22,6 +22,46 @@ public extension ViewType {
     }
 }
 
+// MARK: - Content Extraction
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
+extension ViewType.Map: MultipleViewContent {
+    public static func children(_ content: Content) throws -> LazyGroup<Content> {
+        let provider = try Inspector.cast(value: content.view, type: MapContentProvider.self)
+        let children = try provider.views()
+
+        return LazyGroup(count: children.count) { index in
+            try Inspector.unwrap(view: try children.element(at: index),
+                                 medium: content.medium.resettingViewModifiers())
+        }
+    }
+}
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
+private protocol MapContentProvider {
+    func views() throws -> LazyGroup<Any>
+}
+
+@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
+extension Map: MapContentProvider {
+    func views() throws -> LazyGroup<Any> {
+        let s = self
+        typealias Builder = (Data.Element) -> Content
+//        let builder = try Inspector
+//            .attribute(label: "content", value: self, type: Builder.self)
+        let provider = try Inspector.attribute(label: "provider", value: content.view)
+        let view = try Inspector.attribute(label: "content", value: provider)
+        let data = try Inspector
+            .attribute(label: "data", value: self, type: Data.self)
+//        return try Inspector.viewsInContainer(view: view, medium: content.medium)
+
+        return LazyGroup(count: data.count) { int in
+            let index = data.index(data.startIndex, offsetBy: int)
+            return builder(data[index])
+        }
+    }
+}
+
 // MARK: - Extraction from SingleViewContent parent
 
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)

@@ -13,7 +13,7 @@ import XCTest
 @testable import ViewInspector
 
 @available(iOS 14.0, *)
-class MapTests: XCTestCase {
+class MapAnnotationTests: XCTestCase {
     func testExtractionFromSingleViewContainer() throws {
         let sut = AnyView(Map(coordinateRegion: .constant(MKCoordinateRegion())))
         XCTAssertNoThrow(try sut.inspect().anyView().map())
@@ -83,6 +83,5 @@ class MapTests: XCTestCase {
         XCTAssertEqual(value.size.height, rect.size.height)
         XCTAssertEqual(value.size.width, rect.size.width)
     }
-
 }
 #endif
