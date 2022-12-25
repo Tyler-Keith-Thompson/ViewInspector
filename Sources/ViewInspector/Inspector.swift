@@ -284,7 +284,7 @@ internal extension Inspector {
                     """)
             }
         }
-        if namespacedPrefixes.containsPrefixRegex(matching: typePrefix) {
+        if namespacedPrefixes.containsPrefixRegex(matching: typePrefix) || namespacedPrefixes.contains(typePrefix) {
             return
         }
         if var prefix = namespacedPrefixes.first {
