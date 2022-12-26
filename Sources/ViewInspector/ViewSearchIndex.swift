@@ -88,9 +88,7 @@ internal extension ViewSearch {
         let fullName = Inspector.typeName(value: content.view, namespaced: true, generics: .remove)
         if shortName.count > 0,
            let identity = index[String(shortName.prefix(1))]?
-            .first(where: {
-                $0.viewType.namespacedPrefixes.containsPrefixRegex(matching: fullName)
-            }) {
+            .first(where: { $0.viewType.namespacedPrefixes.contains(fullName) }) {
             return identity
         }
         if (try? content.extractCustomView()) != nil {
