@@ -19,7 +19,7 @@ public extension ViewHosting {
     }
     
     @preconcurrency 
-    static func host<V>(_ view: V, size: CGSize? = nil, function: String = #function, whileHosted: (V) async throws -> Void) async throws where V: View {
+    static func host<V>(_ view: V, size: CGSize? = nil, function: String = #function, whileHosted: @MainActor (V) async throws -> Void) async throws where V: View {
         Self.host(view: view, size: size, function: function)
         try await whileHosted(view)
         Self.expel(function: function)

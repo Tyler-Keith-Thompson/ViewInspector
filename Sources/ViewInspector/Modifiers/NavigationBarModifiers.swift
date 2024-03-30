@@ -150,6 +150,6 @@ private extension String {
 }
 
 private struct FakeNavigationBarItemsKey: PreferenceKey {
-    static var defaultValue: String = ""
+    static let defaultValue: String = ""
     static func reduce(value: inout String, nextValue: () -> String) { }
 }

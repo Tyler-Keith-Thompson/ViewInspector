@@ -36,13 +36,13 @@ public protocol MultipleViewContent {
 internal typealias SupplementaryView = UnwrappedView
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
-@preconcurrency 
 @MainActor
 internal protocol SupplementaryChildren {
     static func supplementaryChildren(_ parent: UnwrappedView) throws -> LazyGroup<SupplementaryView>
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
+@MainActor
 internal protocol SupplementaryChildrenLabelView: SupplementaryChildren {
     static var labelViewPath: String { get }
 }
@@ -62,6 +62,8 @@ extension SupplementaryChildrenLabelView {
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
+@MainActor 
+@preconcurrency
 public protocol BaseViewType {
     static var typePrefix: String { get }
     static var namespacedPrefixes: [String] { get }
@@ -141,7 +143,7 @@ internal extension ViewType {
 // MARK: - Content
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
-public struct Content {
+public struct Content: Sendable {
     let view: Any
     let medium: Medium
     
@@ -157,7 +159,7 @@ public struct Content {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
 internal extension Content {
-    struct Medium {
+    struct Medium: Sendable {
         let viewModifiers: [Any]
         let transitiveViewModifiers: [Any]
         let environmentModifiers: [EnvironmentModifier]

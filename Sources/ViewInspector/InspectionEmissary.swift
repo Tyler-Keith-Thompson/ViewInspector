@@ -1,9 +1,9 @@
 import SwiftUI
-import Combine
+@preconcurrency import Combine
 import XCTest
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
-public protocol InspectionEmissary: AnyObject {
+public protocol InspectionEmissary: AnyObject, Sendable {
     
     associatedtype V
     var notice: PassthroughSubject<UInt, Never> { get }

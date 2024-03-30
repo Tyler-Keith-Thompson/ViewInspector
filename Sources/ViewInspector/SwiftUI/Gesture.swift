@@ -42,6 +42,7 @@ public extension ViewType {
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
 public extension InspectableView {
     
+    @preconcurrency
     func gesture<T>(_ type: T.Type, _ index: Int? = nil) throws -> InspectableView<ViewType.Gesture<T>>
         where T: Gesture {
         return try gestureModifier(
@@ -49,6 +50,7 @@ public extension InspectableView {
             type: type, call: "gesture", index: index)
     }
     
+    @preconcurrency
     func highPriorityGesture<T>(_ type: T.Type, _ index: Int? = nil) throws -> InspectableView<ViewType.Gesture<T>>
         where T: Gesture {
         return try gestureModifier(
@@ -56,6 +58,7 @@ public extension InspectableView {
             type: type, call: "highPriorityGesture", index: index)
     }
     
+    @preconcurrency
     func simultaneousGesture<T>(_ type: T.Type, _ index: Int? = nil) throws -> InspectableView<ViewType.Gesture<T>>
         where T: Gesture {
         return try gestureModifier(
@@ -67,19 +70,23 @@ public extension InspectableView {
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
 public extension InspectableView where View: GestureViewType {
 
+    @preconcurrency
     func first<G: Gesture>(_ type: G.Type) throws -> InspectableView<ViewType.Gesture<G>> {
         return try gestureFromComposedGesture(type, .first)
     }
     
+    @preconcurrency
     func second<G: Gesture>(_ type: G.Type) throws -> InspectableView<ViewType.Gesture<G>> {
         return try gestureFromComposedGesture(type, .second)
     }
     
+    @preconcurrency
     func gestureMask() throws -> GestureMask {
         return try Inspector.attribute(
             path: "gestureMask", value: content.view, type: GestureMask.self)
     }
     
+    @preconcurrency
     func callUpdating<Value, State>(
         value: Value,
         state: inout State,
@@ -93,6 +100,7 @@ public extension InspectableView where View: GestureViewType {
         }
     }
     
+    @preconcurrency
     func callOnChanged<Value>(value: Value) throws {
         typealias Callback = (Value) -> Void
         let callbacks = try gestureCallbacks(
@@ -103,6 +111,7 @@ public extension InspectableView where View: GestureViewType {
         }
     }
     
+    @preconcurrency
     func callOnEnded<Value>(value: Value) throws {
         typealias Callback = (Value) -> Void
         let callbacks = try gestureCallbacks(
@@ -113,6 +122,7 @@ public extension InspectableView where View: GestureViewType {
         }
     }
 
+    @preconcurrency
     func actualGesture() throws -> View.T {
         let typeName = Inspector.typeName(type: View.T.self)
         let valueName = Inspector.typeName(value: content.view)

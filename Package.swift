@@ -15,7 +15,11 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "ViewInspector", dependencies: []),
+            name: "ViewInspector", 
+            dependencies: [],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]),
         .testTarget(
             name: "ViewInspectorTests",
             dependencies: ["ViewInspector"],

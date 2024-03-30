@@ -7,6 +7,7 @@ internal struct ContentExtractor {
         self.contentSource = try Self.contentSource(from: source)
     }
 
+    @MainActor
     internal func extractContent(environmentObjects: [AnyObject]) throws -> Any {
         try validateSourceBeforeExtraction()
         switch contentSource {
@@ -113,6 +114,8 @@ private extension ViewModifier {
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
 public extension View {
     
+    @preconcurrency
+    @MainActor
     func extractContent(environmentObjects: [AnyObject]) throws -> Any {
         var copy = self
         environmentObjects.forEach { copy = EnvironmentInjection.inject(environmentObject: $0, into: copy) }
@@ -129,6 +132,8 @@ public extension View {
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
 public extension ViewModifier {
     
+    @preconcurrency
+    @MainActor
     func extractContent(environmentObjects: [AnyObject]) throws -> Any {
         var copy = self
         environmentObjects.forEach { copy = EnvironmentInjection.inject(environmentObject: $0, into: copy) }

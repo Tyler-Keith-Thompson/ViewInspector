@@ -90,6 +90,7 @@ extension UnwrappedView {
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
+@MainActor
 internal protocol UnwrappedView {
     var content: Content { get }
     var parentView: UnwrappedView? { get }

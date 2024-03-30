@@ -156,7 +156,7 @@ internal extension ViewType {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
 internal extension ViewType {
-    static var popupContainerTypePrefix = "ViewInspector.ViewType.PopupContainer"
+    static let popupContainerTypePrefix = "ViewInspector.ViewType.PopupContainer"
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)

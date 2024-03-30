@@ -11,7 +11,7 @@ public extension Locale {
      }
      ````
      */
-    static var testsDefault: Locale = Locale(identifier: "en")
+    static let testsDefault: Locale = Locale(identifier: "en")
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)

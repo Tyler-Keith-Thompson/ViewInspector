@@ -183,8 +183,8 @@ internal extension ViewSearch {
     @MainActor
     struct ViewIdentity {
         
-        typealias ChildrenBuilder = (UnwrappedView) throws -> LazyGroup<UnwrappedView>
-        typealias SupplementaryBuilder = (UnwrappedView) throws -> LazyGroup<SupplementaryView>
+        typealias ChildrenBuilder = @MainActor (UnwrappedView) throws -> LazyGroup<UnwrappedView>
+        typealias SupplementaryBuilder = @MainActor (UnwrappedView) throws -> LazyGroup<SupplementaryView>
         
         let viewType: KnownViewType.Type
         let builder: (Content, UnwrappedView?, Int?) throws -> UnwrappedView
@@ -243,6 +243,7 @@ private extension KnownViewType {
 // MARK: - KnownViewType and extensions
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
+@MainActor
 internal protocol KnownViewType: BaseViewType {
     static func childViewsBuilder() -> ViewSearch.ViewIdentity.ChildrenBuilder
     static func supplementaryViewsBuilder() -> ViewSearch.ViewIdentity.SupplementaryBuilder
@@ -250,6 +251,7 @@ internal protocol KnownViewType: BaseViewType {
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
+@MainActor
 extension KnownViewType {
     static func childViewsBuilder() -> ViewSearch.ViewIdentity.ChildrenBuilder {
         return { _ in .empty }

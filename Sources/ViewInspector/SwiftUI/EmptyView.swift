@@ -4,7 +4,7 @@ import SwiftUI
 public extension ViewType {
     
     struct EmptyView: KnownViewType {
-        public static var typePrefix: String = "EmptyView"
+        public static let typePrefix: String = "EmptyView"
     }
 }
 
@@ -13,6 +13,7 @@ public extension ViewType {
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
 public extension InspectableView where View: SingleViewContent {
     
+    @preconcurrency
     func emptyView() throws -> InspectableView<ViewType.EmptyView> {
         return try .init(try child(), parent: self)
     }

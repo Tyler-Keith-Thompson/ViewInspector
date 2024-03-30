@@ -131,6 +131,8 @@ public extension InspectableView where View: CustomViewType {
 #if os(macOS)
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
 public extension NSViewRepresentable {
+    @preconcurrency
+    @MainActor
     func nsView() throws -> NSViewType {
         return try ViewHosting.lookup(Self.self)
     }
@@ -138,6 +140,8 @@ public extension NSViewRepresentable {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
 public extension NSViewControllerRepresentable {
+    @preconcurrency
+    @MainActor
     func viewController() throws -> NSViewControllerType {
         return try ViewHosting.lookup(Self.self)
     }

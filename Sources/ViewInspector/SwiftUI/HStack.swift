@@ -3,6 +3,7 @@ import SwiftUI
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
 public extension ViewType {
 
+    @preconcurrency
     struct HStack: KnownViewType {
         public static let typePrefix: String = "HStack"
     }

@@ -121,7 +121,7 @@ internal extension Content {
 public extension ViewType {
     
     struct ViewModifierContent: KnownViewType {
-        public static var typePrefix: String = "_ViewModifier_Content"
+        public static let typePrefix: String = "_ViewModifier_Content"
         
         public static func inspectionCall(typeName: String) -> String {
             return "viewModifierContent(\(ViewType.indexPlaceholder))"
@@ -161,6 +161,8 @@ internal extension _ViewModifier_Content {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
 internal extension ViewModifier {
+    @preconcurrency
+    @MainActor
     func body() -> Any {
         body(content: .init())
     }
